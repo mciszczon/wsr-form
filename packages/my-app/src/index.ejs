@@ -14,6 +14,17 @@
     </script>
     <script src="https://<%= staticsDomain %>/unpkg/react@16.14.0/umd/react<% if (!debug) { %>.production.min<% } else { %>.development<% } %>.js"></script>
     <script src="https://<%= staticsDomain %>/unpkg/react-dom@16.14.0/umd/react-dom<% if (!debug) { %>.production.min<% } else { %>.development<% } %>.js"></script>
+    <link rel="stylesheet" href="//static.parastorage.com/unpkg/@wix/wix-fonts@1.10.1/madefor.min.css" />
+    <style>
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      margin: 0;
+      background-color: #f0f4f7;
+    }
+    </style>
   </head>
   <body>
     <div id="root"></div>
@@ -23,7 +34,5 @@
       window.__MESSAGES__ = <%- messages %>;
     </script>
     <script src="<%= baseStaticsUrl %>app.bundle<% if (!debug) { %>.min<% } %>.js"></script>
-    <!-- Please remove this template intro script tag -->
-    <script src="https://<%= staticsDomain %>/unpkg-semver/yoshi-template-intro/yoshi-template-intro.umd.js"></script>
   </body>
 </html>

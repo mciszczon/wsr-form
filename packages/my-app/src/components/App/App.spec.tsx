@@ -1,21 +1,21 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
-import { I18nextProvider } from '@wix/wix-i18n-config';
-import i18n from '../__mocks__/i18n';
+
+import { pageHeaderTestkitFactory } from 'wix-style-react/dist/testkit';
+
+import formHooks from '../../constants/form';
+
 import App from './App';
 
 describe('App', () => {
   it('renders a title correctly', async () => {
-    const { findByTestId } = render(
-      <Suspense fallback="...loading">
-        <I18nextProvider i18n={i18n}>
-          <App />
-        </I18nextProvider>
-      </Suspense>,
-    );
+    const { baseElement } = render(<App />);
 
-    const el = await findByTestId('app-title');
+    const headerDriver = pageHeaderTestkitFactory({
+      wrapper: baseElement,
+      dataHook: formHooks.PAGE_HEADER,
+    });
 
-    expect(el.textContent).toBe('app.title');
+    expect(headerDriver.titleText()).toEqual('WSR Form');
   });
 });

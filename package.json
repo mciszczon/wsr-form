@@ -23,5 +23,8 @@
       "enable": true,
       "dedupe": true
     }
+  },
+  "dependencies": {
+    "wix-style-react": "^10.43.0"
   }
 }
